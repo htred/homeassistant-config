@@ -1,0 +1,8 @@
+homeassistant:
+  customize:
+    climate.esszimmer_esszimmer_thermostat:
+      friendly_name: Esszimmer
+    light.yeelight_ceiling10_0x00000000065b8362:
+      friendly_name: Esszimmer
+    light.yeelight_ceiling10_0x00000000065b8362_ambilight:
+      friendly_name: Esszimmer Ambiente

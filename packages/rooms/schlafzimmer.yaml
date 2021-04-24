@@ -1,0 +1,8 @@
+homeassistant:
+  customize:
+    light.yeelight_ceiling3_0x0000000005ef9685:
+      friendly_name: Schlafzimmer
+    sensor.temperature_lumi_158d0002391ca7:
+      friendly_name: Schlafzimmer Temperatur
+    sensor.humidity_lumi_158d0002391ca7:
+      friendly_name: Schlafzimmer Luftfeuchtigkeit

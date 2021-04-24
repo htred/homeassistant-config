@@ -1,0 +1,5 @@
+group:
+  motion_sensors:
+    name: Bewegungsmelder
+    entities:
+      - lumi.sensor_motion_esszimmer

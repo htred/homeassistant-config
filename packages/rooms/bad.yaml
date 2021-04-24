@@ -1,0 +1,8 @@
+homeassistant:
+  customize:
+    climate.badezimmer_bad_thermostat:
+      friendly_name: Badezimmer
+    sensor.temperature_lumi_158d000275377a:
+      friendly_name: Badezimmer Temperatur
+    sensor.humidity_lumi_158d000275377a:
+      friendly_name: Badezimmer Luftfeuchtigkeit

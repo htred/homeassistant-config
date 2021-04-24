@@ -1,0 +1,133 @@
+- id: '1619082611620'
+  alias: Aqara Magic Cube Office
+  description: ''
+  use_blueprint:
+    path: aqara-magic-cube-zha-51-actions.yaml
+    input:
+      flip_90: true
+      remote: f31890dfc88345683e2c4d0d9fcc3d8a
+      cube_flip_90:
+      - service: light.toggle
+        target:
+          entity_id: light.office_ceiling
+      flip_180: true
+      cube_flip_180:
+      - service: light.toggle
+        target:
+          entity_id: light.office_passive
+      cube_shake:
+      - service: light.turn_off
+        target:
+          entity_id:
+          - light.office_ceiling
+          - light.office_passive
+      rotate_right:
+      - service: light.turn_on
+        data:
+          brightness_step: 20
+        target:
+          entity_id: light.office_ceiling
+      rotate_left:
+      - service: light.turn_on
+        target:
+          entity_id: light.office_ceiling
+        data:
+          brightness_step: -20
+      knock_any_side: true
+      cube_knock_any:
+      - service: light.turn_off
+        target:
+          entity_id:
+          - light.office_ceiling
+          - light.office_passive
+- id: '1619085096045'
+  alias: aqara switch test
+  description: ''
+  use_blueprint:
+    path: zha-aqara-wireless-remote-switch-double-rocker.yaml
+    input:
+      aqara_mini_switch: a2007fc5dc5b1bfb1534b98a95350ed9
+      button_single_press_left:
+      - service: light.toggle
+        target:
+          entity_id: light.office_ceiling
+- id: '1619106809534'
+  alias: Schlafzimmer Schalter
+  description: ''
+  use_blueprint:
+    path: zha-aqara-wireless-remote-switch-double-rocker.yaml
+    input:
+      aqara_mini_switch: 25c6d224756644b0d9784f39d1ce2aec
+      button_single_press_left:
+      - service: light.toggle
+        target:
+          entity_id: light.yeelight_ceiling3_0x0000000005ef9685
+- id: '1619174944184'
+  alias: motion lights on
+  description: ''
+  trigger:
+  - platform: device
+    domain: binary_sensor
+    entity_id: binary_sensor.lumi_lumi_sensor_motion_esszimmer_ias_zone
+    device_id: 443ad495533ce7f40f6a0d04c510b270
+    type: motion
+  condition: []
+  action:
+  - service: light.turn_on
+    target:
+      entity_id:
+      - light.kueche_ambiente
+      - light.yeelight_ceiling10_0x00000000065b8362_ambilight
+    data: {}
+  mode: single
+- id: '1619175320038'
+  alias: motion lights off
+  description: ''
+  trigger:
+  - platform: device
+    domain: binary_sensor
+    entity_id: binary_sensor.lumi_lumi_sensor_motion_esszimmer_ias_zone
+    device_id: 443ad495533ce7f40f6a0d04c510b270
+    type: no_motion
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+  condition: []
+  action:
+  - service: light.turn_off
+    target:
+      entity_id:
+      - light.kueche_ambiente
+      - light.yeelight_ceiling10_0x00000000065b8362_ambilight
+  mode: single
+- id: '1619249590916'
+  alias: Aqara Magic Cube Esszimmer
+  description: ''
+  use_blueprint:
+    path: aqara-magic-cube-zha-51-actions.yaml
+    input:
+      remote: 665c92911926e23814865b683d573796
+      flip_90: true
+      cube_flip_90:
+      - service: light.toggle
+        target:
+          entity_id: light.yeelight_ceiling10_0x00000000065b8362
+      flip_180: true
+      cube_flip_180:
+      - service: light.toggle
+        target:
+          entity_id: light.yeelight_ceiling10_0x00000000065b8362_ambilight
+      rotate_left:
+      - service: light.turn_on
+        data:
+          brightness_step: -20
+        target:
+          entity_id: light.yeelight_ceiling10_0x00000000065b8362
+      rotate_right:
+      - service: light.turn_on
+        target:
+          entity_id: light.yeelight_ceiling10_0x00000000065b8362
+        data:
+          brightness_step: 20

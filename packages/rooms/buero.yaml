@@ -1,0 +1,32 @@
+light:
+  - platform: group
+    name: office_ceiling
+    entities:
+      - light.hue_color_spot_buero_1
+      - light.hue_color_spot_buero_2
+      - light.hue_color_spot_buero_3
+      - light.hue_color_spot_buero_4
+      - light.hue_color_spot_buero_5
+      - light.hue_color_spot_buero_6
+      - light.hue_color_spot_buero_7
+      - light.hue_color_spot_buero_8
+  - platform: group
+    name: office_passive
+    entities:
+      - light.yeelight_stripe_0x000000000333b29d
+      - light.hue_iris_buero
+
+#fan:
+#  - platform: xiaomi_miio_fan
+#    name: Xiaomi Smart Fan Buero
+#    host: 10.0.20.7
+#    token: !secret xiaomi_fan_office
+
+homeassistant:
+  customize:
+    light.office_ceiling:
+      friendly_name: Büro
+    light.office_passive:
+      friendly_name: Büro Ambiente
+    climate.buro_buero_thermostat:
+      friendly_name: Büro

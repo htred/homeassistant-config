@@ -1,0 +1,19 @@
+light:
+  - platform: group
+    name: wohnzimmer_ambiente
+    entities:
+      - light.wohnzimmer_rucken_1
+      - light.wohnzimmer_rucken_2
+      - light.lightstrip_rucken
+  - platform: group
+    name: wohnzimmer_stehlampe
+    entities:
+      - light.wohnzimmer_stehlampe_1
+      - light.wohnzimmer_stehlampe_2
+  
+homeassistant:
+  customize:
+    light.hue_ambiance_ceiling_wohnzimmer:
+      friendly_name: Wohnzimmer
+    climate.wohnzimmer_wohnzimmer_thermostat:
+      friendly_name: Wohnzimmer

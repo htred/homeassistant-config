@@ -1,0 +1,58 @@
+camera:
+  - platform: generic
+    name: Haustür
+    still_image_url: http://10.0.0.250:8844/snapshot.cgi
+    stream_source: !secret camera_haustuer_stream
+  - platform: generic
+    name: Hof
+    still_image_url: http://10.0.0.250:8845/snapshot.cgi
+    stream_source: !secret camera_hof_stream
+
+rest:
+  - authentication: basic
+    scan_interval: 2
+    resource: !secret bierlift_status_url
+    sensor:
+      - name: "bierlift_status"
+        value_template: '{{ value_json.STATUS[0] }}'
+      - name: "bierlift_temperature"
+        value_template: '{{ value_json.TEMP[0] }}'
+      - name: "bierlift_uptime"
+        value_template: '{{ value_json.TW[0] }}'
+      - name: "bierlift_water"
+        value_template: '{{ value_json.WATER[0] }}'
+
+rest_command:
+  bierlift_down:
+    url: !secret bierlift_post_url
+    method: "post"
+    content_type: "application/x-www-form-urlencoded"
+    payload:  "BTN_DOWN=down"
+    verify_ssl: false
+  bierlift_stop:
+    url: !secret bierlift_post_url
+    method: "post"
+    content_type: "application/x-www-form-urlencoded"
+    payload: "BTN_STOP=stop"
+    verify_ssl: false
+  bierlift_up:
+    url: !secret bierlift_post_url
+    method: "post"
+    content_type: "application/x-www-form-urlencoded"
+    payload: "BTN_UP=up"
+    verify_ssl: false
+
+light:
+  - platform: group
+    name: Balkon
+    entities:
+      - light.yeelight_color_0x00000000035c01c7
+
+homeassistant:
+  customize:
+    sensor.temperature_lumi_158d000233fb2e:
+      friendly_name: Aussen Temperatur
+    sensor.humidity_lumi_158d000233fb2e:
+      friendly_name: Aussen Luftfeuchtigkeit
+    light.yeelight_color_0x00000000035c01c7:
+      friendly_name: Balkon 1

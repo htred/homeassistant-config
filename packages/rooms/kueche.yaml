@@ -1,0 +1,15 @@
+homeassistant:
+  customize:
+    vacuum.roborock_vacuum_s5:
+      friendly_name: Roborock S50
+    light.yeelight_ceiling4_0x0000000005eb1e20:
+      friendly_name: Kueche
+    light.yeelight_ceiling4_0x0000000005eb1e20_ambilight:
+      friendly_name: Kueche Ambiente
+
+light:
+  - platform: group
+    name: kueche_ambiente
+    entities:
+      - light.yeelight_ceiling4_0x0000000005eb1e20_ambilight
+      - light.kueche_light_strip

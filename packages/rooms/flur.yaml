@@ -1,0 +1,10 @@
+light:
+  - platform: group
+    name: Flur
+    entities:
+      - light.hue_ambiance_spot_flur_1
+      - light.hue_ambiance_spot_flur_2
+      - light.hue_ambiance_spot_flur_3
+      - light.hue_ambiance_spot_flur_4
+      - light.hue_ambiance_spot_flur_5
+      - light.hue_ambiance_spot_flur_6
